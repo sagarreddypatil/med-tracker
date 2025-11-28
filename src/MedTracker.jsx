@@ -10,42 +10,10 @@ const ICONS = {
             <path d="M19.73 4.27a5.33 5.33 0 00-7.54 0L4.27 12.19a5.33 5.33 0 007.54 7.54l7.92-7.92a5.33 5.33 0 000-7.54zm-1.41 6.13l-3.96 3.96-4.24-4.24 3.96-3.96a2.67 2.67 0 013.77 0l.47.47a2.67 2.67 0 010 3.77z" />
         </svg>
     ),
-    capsule: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-            <rect x="8" y="2" width="8" height="20" rx="4" />
-            <rect x="8" y="2" width="8" height="10" rx="0" opacity="0.5" />
-        </svg>
-    ),
     tablet: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
             <circle cx="12" cy="12" r="9" />
             <line x1="12" y1="3" x2="12" y2="21" stroke="currentColor" strokeWidth="1" opacity="0.3" />
-        </svg>
-    ),
-    liquid: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-            <path d="M6 3h12v2H6V3zm1 4h10l1 14H6L7 7zm3 3v8h1v-8h-1zm3 0v8h1v-8h-1z" />
-        </svg>
-    ),
-    syringe: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-            <path d="M11.15 15.18l-1.42-1.42L16.44 7l1.42 1.42-6.71 6.76zM9.73 13.76L6.5 17H5v-1.5l3.24-3.24 1.49 1.5zM19 3l2 2-1.5 1.5-2-2L19 3zM7 19h10v2H7v-2z" />
-            <path d="M14 9l-4 4" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-        </svg>
-    ),
-    inhaler: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-            <path d="M7 21h4v-2H7v2zm0-4h4v-6l-2-4-2 4v6zm6-10V3h4v4h-4zm0 14h4v-2h-4v2zm0-4h4v-8h-4v8z" />
-        </svg>
-    ),
-    drop: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-            <path d="M12 2c-5.33 8-8 12-8 15a8 8 0 0016 0c0-3-2.67-7-8-15z" />
-        </svg>
-    ),
-    heart: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
         </svg>
     ),
 };
@@ -251,7 +219,6 @@ export default function MedicationTracker() {
 
         const newLog = {
             id: uuid(),
-            medicationId: pendingMed.id,
             name: pendingMed.name,
             dosage: pendingMed.dosage,
             icon: pendingMed.icon,
@@ -361,7 +328,7 @@ export default function MedicationTracker() {
                                 value={logTime}
                                 onChange={e => setLogTime(e.target.value)}
                                 autoFocus
-                                className="w-full bg-zinc-800/50 border border-zinc-700/50 rounded-xl px-4 py-3 text-white text-lg focus:outline-none focus:border-amber-500/50"
+                                className="w-full bg-zinc-800/50 border border-zinc-700/50 rounded-xl px-4 py-3 text-white text-lg focus:outline-none focus:border-green-700/50"
                                 style={{ colorScheme: 'dark' }}
                             />
                         </div>
@@ -374,7 +341,7 @@ export default function MedicationTracker() {
                             </button>
                             <button
                                 onClick={confirmLog}
-                                className="flex-1 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium transition-all"
+                                className="flex-1 py-3 rounded-xl bg-gradient-to-r from-green-700 to-emerald-800 text-white font-medium transition-all"
                             >
                                 Log
                             </button>
@@ -406,7 +373,7 @@ export default function MedicationTracker() {
                     <h1 className="text-xl font-medium flex-1">Medications</h1>
                     <button
                         onClick={openAddMed}
-                        className="w-9 h-9 rounded-full bg-amber-500 flex items-center justify-center text-white"
+                        className="w-9 h-9 rounded-full bg-green-700 flex items-center justify-center text-white"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
@@ -498,8 +465,8 @@ export default function MedicationTracker() {
                             type="text"
                             value={medName}
                             onChange={e => setMedName(e.target.value)}
-                            placeholder="e.g. Adderall XR"
-                            className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50"
+                            placeholder="e.g. Zoloft"
+                            className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-green-700/50"
                         />
                     </div>
 
@@ -510,7 +477,7 @@ export default function MedicationTracker() {
                             value={medDosage}
                             onChange={e => setMedDosage(e.target.value)}
                             placeholder="e.g. 25mg"
-                            className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50"
+                            className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-green-700/50"
                         />
                     </div>
 
@@ -522,7 +489,7 @@ export default function MedicationTracker() {
                                     key={iconName}
                                     onClick={() => setMedIcon(iconName)}
                                     className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${medIcon === iconName
-                                        ? 'bg-zinc-700 ring-2 ring-amber-500'
+                                        ? 'bg-zinc-700 ring-2 ring-green-700'
                                         : 'bg-zinc-900 hover:bg-zinc-800'
                                         }`}
                                 >
@@ -556,7 +523,7 @@ export default function MedicationTracker() {
                     <button
                         onClick={saveMed}
                         disabled={!medName.trim()}
-                        className="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium disabled:opacity-40 transition-all"
+                        className="w-full py-4 rounded-xl bg-gradient-to-r from-green-700 to-emerald-800 text-white font-medium disabled:opacity-40 transition-all"
                     >
                         {editingMed ? 'Save Changes' : 'Add Medication'}
                     </button>
