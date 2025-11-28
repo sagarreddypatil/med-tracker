@@ -1,10 +1,5 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { render } from 'preact'
 import './index.css'
 import MedTracker from './MedTracker'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <MedTracker />
-  </StrictMode>,
-)
+render(<MedTracker />, document.getElementById('root'))

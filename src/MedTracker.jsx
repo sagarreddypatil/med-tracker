@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'preact/hooks';
 
 const LOGS_KEY = 'med_tracker_logs';
 const MEDS_KEY = 'med_tracker_medications';
